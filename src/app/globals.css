@@ -1,26 +1,188 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
+
+/*
+ * Theme CSS Custom Properties
+ * Change a value here -> it updates everywhere.
+ * See also: src/lib/theme.ts for documentation.
+ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand */
+  --color-primary: #14b8a6; /* teal-500 */
+  --color-primary-hover: #0d9488; /* teal-600 */
+  --color-primary-light: #f0fdfa; /* teal-50 */
+  --color-primary-light-hover: #ccfbf1; /* teal-100 */
+
+  /* Secondary */
+  --color-secondary: #10b981; /* emerald-500 */
+
+  /* Accent (maroon – for highlighted text like company names) */
+  --color-accent: #33d59f;
+
+  /* Surfaces */
+  --color-surface: #ffffff;
+  --color-surface-alt: #f9fafb;
+  --color-card: #ffffff;
+
+  /* Borders */
+  --color-border: #f3f4f6;
+  --color-border-medium: #e5e7eb;
+
+  /* Text */
+  --color-heading: #111827;
+  --color-body: #4b5563;
+  --color-muted: #6b7280;
+  --color-faint: #9ca3af;
+
+  /* Status */
+  --color-success: #16a34a;
+  --color-success-light: #f0fdf4;
+  --color-success-text: #15803d;
+  --color-check: #22c55e;
+
+  /* Misc */
+  --color-tag-bg: #f3f4f6;
+  --color-tag-text: #4b5563;
+  --color-social-border: #e5e7eb;
+  --color-social-text: #4b5563;
+  --color-navbar-bg: rgba(255, 255, 255, 0.8);
+  --color-navbar-solid: rgba(255, 255, 255, 0.95);
+  --color-navbar-border: rgba(229, 231, 235, 0.5);
+  --color-selection: #3b82f6;
+  --color-scroll-thumb: #94a3b8;
+  --color-scroll-thumb-hover: #64748b;
+
+  /* Gradient */
+  --gradient-hero: linear-gradient(to right, #14b8a6, #10b981);
+  --gradient-cta: linear-gradient(to bottom right, #14b8a6, #10b981);
+}
+
+.dark {
+  /* Brand */
+  --color-primary: #f28e3c; /* orange-400 */
+  --color-primary-hover: #f97316; /* orange-500 */
+  --color-primary-light: rgba(249, 115, 22, 0.15); /* orange, transparent */
+  --color-primary-light-hover: rgba(249, 115, 22, 0.25);
+
+  /* Secondary */
+  --color-secondary: #fbbf24; /* amber-400 */
+
+  /* Accent (orange for dark mode company name text) */
+  --color-accent: #fb923c;
+
+  /* Surfaces */
+  --color-surface: #0a0a0a;
+  --color-surface-alt: #030712;
+  --color-card: #111827;
+
+  /* Borders */
+  --color-border: #1f2937;
+  --color-border-medium: #1f2937;
+
+  /* Text */
+  --color-heading: #ffffff;
+  --color-body: #d1d5db;
+  --color-muted: #9ca3af;
+  --color-faint: #6b7280;
+
+  /* Status */
+  --color-success: #4ade80;
+  --color-success-light: rgba(20, 83, 45, 0.3);
+  --color-success-text: #86efac;
+  --color-check: #22c55e;
+
+  /* Misc */
+  --color-tag-bg: #1f2937;
+  --color-tag-text: #9ca3af;
+  --color-social-border: #374151;
+  --color-social-text: #9ca3af;
+  --color-navbar-bg: rgba(10, 10, 10, 0.8);
+  --color-navbar-solid: rgba(10, 10, 10, 0.95);
+  --color-navbar-border: rgba(31, 41, 55, 0.5);
+  --color-selection: #3b82f6;
+  --color-scroll-thumb: #475569;
+  --color-scroll-thumb-hover: #64748b;
+
+  /* Gradient */
+  --gradient-hero: linear-gradient(to right, #fb923c, #fbbf24);
+  --gradient-cta: linear-gradient(to bottom right, #f97316, #fbbf24);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-light-hover: var(--color-primary-light-hover);
+  --color-secondary: var(--color-secondary);
+  --color-surface: var(--color-surface);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-card: var(--color-card);
+  --color-border: var(--color-border);
+  --color-border-medium: var(--color-border-medium);
+  --color-heading: var(--color-heading);
+  --color-body: var(--color-body);
+  --color-muted: var(--color-muted);
+  --color-faint: var(--color-faint);
+  --color-success: var(--color-success);
+  --color-success-light: var(--color-success-light);
+  --color-success-text: var(--color-success-text);
+  --color-check: var(--color-check);
+  --color-tag-bg: var(--color-tag-bg);
+  --color-tag-text: var(--color-tag-text);
+  --color-social-border: var(--color-social-border);
+  --color-social-text: var(--color-social-text);
+  --color-accent: var(--color-accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-surface);
+  color: var(--color-body);
+  font-family:
+    var(--font-sans),
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-scroll-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-scroll-thumb-hover);
+}
+
+/* Selection color */
+::selection {
+  background: var(--color-selection);
+  color: white;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* CTA gradient background */
+.bg-gradient-cta {
+  background: var(--gradient-cta);
 }
