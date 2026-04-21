@@ -11,7 +11,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6"
+      className="relative flex min-h-screen items-start justify-center overflow-hidden px-6 pt-28 md:items-center md:pt-0"
     >
       {/* Background gradient */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">

@@ -126,11 +126,11 @@ export const projects: Project[] = [
     github: "https://github.com/yasir-nizame/Finance-Platform",
   },
   {
-    title: "Briddle",
+    title: "Wildlife Monitor AI",
     description:
-      "A modern web application built with TypeScript featuring a clean user interface and robust functionality.",
-    techStack: ["TypeScript", "React.js", "Tailwind CSS"],
-    github: "https://github.com/yasir-nizame/Briddle",
+      "An autonomous wildlife monitoring system integrating object detection (Haar-Feature & YOLO) for animal identification, sound classification to determine animal mood (Angry/Normal), and graph-based movement tracking using BFS and DFS to map and traverse animal paths across a monitored area.",
+    techStack: ["Python", "YOLO", "OpenCV", "Graph Theory", "Jupyter Notebook"],
+    github: "https://github.com/yasir-nizame/Mood-analysis-and-path-tracking",
   },
   {
     title: "Khareedari",

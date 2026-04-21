@@ -95,11 +95,27 @@ export default function Navbar() {
             }}
           >
             <div className="flex flex-col gap-4 px-6 py-6">
-              <NavLinks
-                links={navLinks}
-                activeSection={activeSection}
-                onClick={() => setIsOpen(false)}
-              />
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+                    setTimeout(() => {
+                      const el = document.getElementById(link.href.slice(1));
+                      if (el) el.scrollIntoView({ behavior: "smooth" });
+                    }, 300);
+                  }}
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    activeSection === link.href.slice(1)
+                      ? "text-primary"
+                      : "text-muted hover:text-primary"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ))}
               <a
                 href={personalInfo.resumeUrl}
                 download

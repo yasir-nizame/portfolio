@@ -98,10 +98,10 @@ export default function ContactSection() {
               <Button
                 href={personalInfo.resumeUrl}
                 variant="outline-white"
-                size="lg"
+                size="md"
               >
                 <FiDownload className="h-4 w-4" />
-                Download CV
+                Download
               </Button>
             </div>
           </div>
